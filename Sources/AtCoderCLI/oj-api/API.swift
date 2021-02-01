@@ -13,7 +13,7 @@ enum OjApiCommand {
 
 private extension OjApiCommand {
     static func precheck(ojApiPath: String) throws {
-        guard SwiftShell.run("which", ojApiPath).stdout.isEmpty else {
+        guard !SwiftShell.run("which", ojApiPath).stdout.isEmpty else {
             /// Debug で `oj-api` にパスが通ってない場合は、[Edit Scheme] - [Run] - [Arguments Passed on Launch] に
             /// `new abc190 --oj-api-path <oj-api の絶対パス>` を追加してください
             throw "command not found: `oj-api`"
