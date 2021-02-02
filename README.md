@@ -22,6 +22,14 @@ cp -f .build/release/accs /usr/local/bin/.
 
 ## Usage
 
+コンテスト名から Xcode プロジェクトの作成
+
 ```bash
 accs new abc190
+```
+
+作成したプロジェクトを開く
+
+```
+open abc190/Package.swift
 ```
