@@ -1,5 +1,5 @@
-extension Generate {
-    static func package(taskName: String, problemsAlphabets: [String]) throws {
+extension Generator {
+    static func packageSwift(taskName: String, problemsAlphabets: [String]) throws {
         let package = """
         // swift-tools-version:5.3
         import PackageDescription

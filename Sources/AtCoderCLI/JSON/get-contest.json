@@ -1,0 +1,76 @@
+{
+  "status": "ok",
+  "messages": [],
+  "result": {
+    "url": "https://atcoder.jp/contests/abc190",
+    "problems": [
+      {
+        "url": "https://atcoder.jp/contests/abc190/tasks/abc190_a",
+        "name": "Very Very Primitive Game",
+        "context": {
+          "contest": {
+            "name": "AtCoder Beginner Contest 190",
+            "url": "https://atcoder.jp/contests/abc190"
+          },
+          "alphabet": "A"
+        }
+      },
+      {
+        "url": "https://atcoder.jp/contests/abc190/tasks/abc190_b",
+        "name": "Magic 3",
+        "context": {
+          "contest": {
+            "name": "AtCoder Beginner Contest 190",
+            "url": "https://atcoder.jp/contests/abc190"
+          },
+          "alphabet": "B"
+        }
+      },
+      {
+        "url": "https://atcoder.jp/contests/abc190/tasks/abc190_c",
+        "name": "Bowls and Dishes",
+        "context": {
+          "contest": {
+            "name": "AtCoder Beginner Contest 190",
+            "url": "https://atcoder.jp/contests/abc190"
+          },
+          "alphabet": "C"
+        }
+      },
+      {
+        "url": "https://atcoder.jp/contests/abc190/tasks/abc190_d",
+        "name": "Staircase Sequences",
+        "context": {
+          "contest": {
+            "name": "AtCoder Beginner Contest 190",
+            "url": "https://atcoder.jp/contests/abc190"
+          },
+          "alphabet": "D"
+        }
+      },
+      {
+        "url": "https://atcoder.jp/contests/abc190/tasks/abc190_e",
+        "name": "Magical Ornament",
+        "context": {
+          "contest": {
+            "name": "AtCoder Beginner Contest 190",
+            "url": "https://atcoder.jp/contests/abc190"
+          },
+          "alphabet": "E"
+        }
+      },
+      {
+        "url": "https://atcoder.jp/contests/abc190/tasks/abc190_f",
+        "name": "Shift and Inversions",
+        "context": {
+          "contest": {
+            "name": "AtCoder Beginner Contest 190",
+            "url": "https://atcoder.jp/contests/abc190"
+          },
+          "alphabet": "F"
+        }
+      }
+    ],
+    "name": "AtCoder Beginner Contest 190"
+  }
+}

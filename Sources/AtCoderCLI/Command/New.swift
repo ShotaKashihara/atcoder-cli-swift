@@ -14,10 +14,11 @@ struct New: ParsableCommand {
         /// `TODO`
         /// - Copy Project Files
         /// - [x] Generate `Package.swift`
-        /// - [ ] Generate `README.md`
+        /// - [x] Generate `README.md`
         /// - [ ] Generate `Sources - main.swift`
         /// - [ ] Generate `Tests - A.swift`
         /// - [ ] Generate `TestLibrary.swift`
-        try Generate.package(taskName: taskName, problemsAlphabets: problems.map { $0.context.alphabet })
+        try Generator.packageSwift(taskName: taskName, problemsAlphabets: problems.map(\.context.alphabet))
+        try Generator.readme(contest: contest, problems: problems)
     }
 }
