@@ -20,6 +20,7 @@ extension Generator {
             ]
         )
         """
-        try package.write(toFile: "Package.swift", atomically: true, encoding: .utf8)
+        let fileName = "Package.swift"
+        try package.write(toFile: fileName, atomically: true, encoding: .utf8)
     }
 }

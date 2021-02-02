@@ -13,7 +13,7 @@ let package = Package(
     name: "AtCoderCLI",
     platforms: [macOSPlatform],
     products: [
-        .executable(name: "acc-swift", targets: ["AtCoderCLI"]),
+        .executable(name: "accs", targets: ["AtCoderCLI"]),
     ],
     dependencies: [
         .package(url: "https://github.com/apple/swift-argument-parser", from: "0.3.0"),

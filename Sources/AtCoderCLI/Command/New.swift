@@ -11,14 +11,12 @@ struct New: ParsableCommand {
 
     mutating func run() throws {
         let (contest, problems) = try OjApiCommand.getAllTasks(name: taskName, ojApiPath: ojApiPath)
-        /// `TODO`
-        /// - Copy Project Files
-        /// - [x] Generate `Package.swift`
-        /// - [x] Generate `README.md`
-        /// - [ ] Generate `Sources - main.swift`
-        /// - [ ] Generate `Tests - A.swift`
-        /// - [ ] Generate `TestLibrary.swift`
+        try FileManager.default.createDirectory(atPath: taskName, withIntermediateDirectories: true)
+        FileManager.default.changeCurrentDirectoryPath(taskName)
         try Generator.packageSwift(taskName: taskName, problemsAlphabets: problems.map(\.context.alphabet))
         try Generator.readme(contest: contest, problems: problems)
+        try problems.forEach(Generator.source(problem:))
+        try problems.forEach(Generator.test(problem:))
+        try Generator.testLibrary()
     }
 }

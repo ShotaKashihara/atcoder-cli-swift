@@ -10,6 +10,7 @@ extension Generator {
         """}.joined(separator: "\n"))
 
         """
-        try readme.write(toFile: "README.md", atomically: true, encoding: .utf8)
+        let fileName = "README.md"
+        try readme.write(toFile: fileName, atomically: true, encoding: .utf8)
     }
 }
