@@ -29,6 +29,9 @@ cp -f .build/release/accs /usr/local/bin/.
 1. コンテスト名から Xcode プロジェクトの作成
 
 ```bash
+# ABC190 なら abc190
+# コンテストページURLの末尾の文字列を参照します。
+# ex. http://atcoder.jp/contests/abc190 -> abc190
 accs new abc190
 ```
 
