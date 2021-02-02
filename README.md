@@ -22,4 +22,6 @@ cp -f .build/release/accs /usr/local/bin/.
 
 ## Usage
 
-
+```bash
+accs new abc190
+```

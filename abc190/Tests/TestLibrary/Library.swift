@@ -2,7 +2,7 @@ import XCTest
 import class Foundation.Bundle
 
 public extension XCTestCase {
-    func solve(line: UInt, input: String, expected: String) throws {
+    func solve(file: StaticString, line: UInt, input: String, expected: String) throws {
         // Some of the APIs that we use below are available in macOS 10.13 and above.
         guard #available(macOS 10.13, *) else {
             return
@@ -22,7 +22,7 @@ public extension XCTestCase {
         process.waitUntilExit()
         let data = pipeOutput.fileHandleForReading.readDataToEndOfFile()
         let output = String(data: data, encoding: .utf8)!
-        XCTAssertEqual(output, "\(expected)\n", line: line)
+        XCTAssertEqual(output, expected, file: file, line: line)
     }
 
     private var productsDirectory: URL {
