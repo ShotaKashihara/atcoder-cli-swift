@@ -26,20 +26,21 @@ cp -f .build/release/accs /usr/local/bin/.
 
 ### コンテストの始め方
 
-コンテスト名から Xcode プロジェクトの作成します
+1. コンテスト名から Xcode プロジェクトの作成
 
 ```bash
 accs new abc190
 ```
 
-作成したプロジェクトを開く
+2. 作成したプロジェクトを開く
 
 ```
 open abc190/Package.swift
 ```
 
-`Sources/A/main.swift` を開いて問題を解きます
-問題が解けたら ⌘（command） + U でテストを実行します
+3. `Sources/A/main.swift` を開いて問題を解きます
+4. 問題が解けたら ⌘（command） + U でテストを実行します
+
 この際、ターゲットを問題のアルファベットに切り替えておくと良いです (⌃(control) + ⌘（command） + ] がショートカットキーです)
 
-テストが通ったら AtCoder の提出ページからコードを提出します
+5. テストが通ったら AtCoder の提出ページからコードを提出します
