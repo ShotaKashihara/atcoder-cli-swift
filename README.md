@@ -1,6 +1,7 @@
 # AtCoderCLI for Swift (accs)
 
 [AtCoder](https://atcoder.jp/?lang=ja) command line tools for Swift
+[Tatamo/atcoder-cli](https://github.com/Tatamo/atcoder-cli) を参考に、 Swift コーダー向けにカスタマイズしました
 
 <img src="misc/top.png">
 
