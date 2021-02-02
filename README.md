@@ -24,7 +24,9 @@ cp -f .build/release/accs /usr/local/bin/.
 
 ## Usage
 
-コンテスト名から Xcode プロジェクトの作成
+### コンテストの始め方
+
+コンテスト名から Xcode プロジェクトの作成します
 
 ```bash
 accs new abc190
@@ -37,3 +39,4 @@ open abc190/Package.swift
 ```
 
 `Sources/A/main.swift` を開いて問題を解きます
+問題が解けたら AtCoder の提出ページからコードを提出します
