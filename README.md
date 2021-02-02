@@ -35,3 +35,5 @@ accs new abc190
 ```
 open abc190/Package.swift
 ```
+
+`Sources/A/main.swift` を開いて問題を解きます
