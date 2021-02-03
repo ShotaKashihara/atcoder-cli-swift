@@ -51,17 +51,26 @@ open abc190/Package.swift
 
 3. `Sources/A/main.swift` を開いて問題を解きます
 
-
+<img src="misc/open_first_task.png">
 
 4. 問題が解けたら ⌘（command） + U でテストを実行します
 
-- ビルドターゲットを問題のアルファベットに切り替えておくと良いです
-  - ショートカットキー: ⌃(control) + ⌘（command） + ]
+<img src="misc/test_done.png">
+
+
+ビルドターゲットを問題のアルファベットに切り替えておくと良いです
+
+<img src="misc/select_target.png">
+
+- ショートカットキー: ⌃(control) + ⌘（command） + ]
 
 5. テストが通ったらコードを提出します
 
 ```bash
-cd abc190/
-# A問題の提出なら submit の直後に `a` を指定します
-accs submit a -r
+# 提出コードがA問題なら <task> には `a` を指定します
+accs submit <task> -r
 ```
+
+提出ページが自動で開きます
+
+<img src="misc/submit_page.png">
