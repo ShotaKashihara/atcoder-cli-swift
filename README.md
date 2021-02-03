@@ -1,7 +1,6 @@
 # AtCoderCLI for Swift (accs)
 
-[AtCoder](https://atcoder.jp/?lang=ja) command line tools for Swift
-[Tatamo/atcoder-cli](https://github.com/Tatamo/atcoder-cli) を参考に、 Swift コーダー向けにカスタマイズしました
+[Tatamo/atcoder-cli](https://github.com/Tatamo/atcoder-cli) にインスパイアされた、 Swift-er 向け AtCoder CLI です
 
 - コンテスト毎に Xcode プロジェクトを作成します
 - 問題ごとにサンプルの入出力テストケースを作成します
