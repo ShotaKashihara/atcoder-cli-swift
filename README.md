@@ -2,9 +2,9 @@
 
 [Tatamo/atcoder-cli](https://github.com/Tatamo/atcoder-cli) にインスパイアされた、 Swift-er 向け AtCoder CLI です
 
-- コンテスト毎に Xcode プロジェクトを作成します
-- 問題ごとにサンプルの入出力テストケースを作成します
-- コードの提出を支援します
+- コンテスト毎に Xcode プロジェクトを作成します (`accs new <contest>`)
+  - 問題ごとにサンプルの入出力テストケースを作成します
+- コードの提出を支援します (`accs submit <task>`)
 
 <img src="misc/top.png">
 
