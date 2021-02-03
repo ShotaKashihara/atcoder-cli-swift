@@ -6,8 +6,9 @@
 
 <img src="misc/top.png">
 
-- コンテスト毎に Xcode プロジェクトを作成します
-- 問題ごとにサンプルテストケースを作成します
+- コンテスト毎に Xcode プロジェクトを作成します (`accs new <contest-name>`)
+- 問題ごとにサンプルの入出力からテストケースを作成します
+- コードの提出を支援します
 
 ## Requirements
 
@@ -52,7 +53,7 @@ open abc190/Package.swift
 
 <img src="misc/open_first_task.png">
 
-4. 問題が解けたら ⌘（command） + U でテストを実行します
+### 4. 問題が解けたら ⌘（command） + U でテストを実行します
 
 <img src="misc/test_done.png">
 
@@ -63,13 +64,11 @@ open abc190/Package.swift
 
 - ショートカットキー: ⌃(control) + ⌘（command） + ]
 
-5. テストが通ったらコードを提出します
+### 5. テストが通ったらコードを提出します
 
 ```bash
 # 提出コードがA問題なら <task> には `a` を指定します
 accs submit <task> -r
 ```
-
-提出ページが自動で開きます
 
 <img src="misc/submit_page.png">
