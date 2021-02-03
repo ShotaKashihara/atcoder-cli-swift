@@ -1,6 +1,6 @@
-struct Package: Generator {
+struct PackageSwift: Generator {
     let contestName: String
-    let problemsAlphabets: [String]
+    let alphabets: [Character]
     let fileName = "Package.swift"
     let directory: String? = nil
     var source: String {
@@ -12,7 +12,7 @@ struct Package: Generator {
             name: "\(contestName.uppercased())",
             dependencies: [],
             targets: [
-        \(problemsAlphabets
+        \(alphabets
                     .map {
         """
                 .target(name: "\($0)"),

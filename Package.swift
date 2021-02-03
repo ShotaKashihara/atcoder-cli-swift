@@ -14,6 +14,7 @@ let package = Package(
     platforms: [macOSPlatform],
     products: [
         .executable(name: "accs", targets: ["AtCoderCLI"]),
+        .library(name: "AtCoderLibrary", targets: ["AtCoderLibrary"]),
     ],
     dependencies: [
         .package(url: "https://github.com/apple/swift-argument-parser", from: "0.3.0"),
@@ -22,14 +23,18 @@ let package = Package(
     targets: [
         .target(
             name: "AtCoderCLI",
+            dependencies: ["AtCoderLibrary"]
+        ),
+        .target(
+            name: "AtCoderLibrary",
             dependencies: [
                 .product(name: "ArgumentParser", package: "swift-argument-parser"),
                 "SwiftShell",
             ]
         ),
         .testTarget(
-            name: "AtCoderCLITests",
-            dependencies: ["AtCoderCLI"]
+            name: "AtCoderLibraryTests",
+            dependencies: ["AtCoderLibrary"]
         ),
     ],
     swiftLanguageVersions: [.v5]

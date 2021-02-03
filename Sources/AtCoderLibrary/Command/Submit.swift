@@ -2,8 +2,9 @@ import Foundation
 import ArgumentParser
 import SwiftShell
 
-struct Submit: ParsableCommand {
-    static var configuration = CommandConfiguration(
+public struct Submit: ParsableCommand {
+    public init() {}
+    public static var configuration = CommandConfiguration(
         abstract: "Submit a your code."
     )
 
@@ -16,7 +17,7 @@ struct Submit: ParsableCommand {
     @Option(help: "Specify the path to oj-api.")
     var ojApiPath: String = "oj-api"
 
-    mutating func run() throws {
+    public mutating func run() throws {
         guard FileManager.default.fileExists(atPath: "./Package.swift") else {
             throw """
                 Could not resolve the contest name.

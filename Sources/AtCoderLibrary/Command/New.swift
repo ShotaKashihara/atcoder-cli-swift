@@ -2,8 +2,9 @@ import Foundation
 import ArgumentParser
 import SwiftShell
 
-struct New: ParsableCommand {
-    static var configuration = CommandConfiguration(
+public struct New: ParsableCommand {
+    public init() {}
+    public static var configuration = CommandConfiguration(
         abstract: "Create a new contest project."
     )
     
@@ -13,12 +14,13 @@ struct New: ParsableCommand {
     @Option(help: "Specify the path to oj-api.")
     var ojApiPath: String = "oj-api"
 
-    mutating func run() throws {
+    public mutating func run() throws {
         let (contest, problems) = try OjApiCommand.getAllTasks(name: contestName, ojApiPath: ojApiPath)
         try FileManager.default.createDirectory(atPath: contestName, withIntermediateDirectories: true)
         FileManager.default.changeCurrentDirectoryPath(contestName)
 
-        try Package(contestName: contestName, problemsAlphabets: problems.map(\.context.alphabet)).write()
+        let alphabets = problems.map(\.context.alphabet).map(Character.init)
+        try PackageSwift(contestName: contestName, alphabets: alphabets).write()
         try Readme(contest: contest, problems: problems).write()
         try problems.forEach {
             try Source(problem: $0).write()
