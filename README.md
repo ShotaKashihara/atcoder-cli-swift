@@ -1,14 +1,13 @@
 # AtCoderCLI for Swift (accs)
 ![Unit Test](https://github.com/ShotaKashihara/atcoder-cli-swift/workflows/Unit%20Test/badge.svg?event=push)
 
-[AtCoder](https://atcoder.jp/?lang=ja) command line tools for Swift
-[Tatamo/atcoder-cli](https://github.com/Tatamo/atcoder-cli) を参考に、 Swift コーダー向けにカスタマイズしました
+[Tatamo/atcoder-cli](https://github.com/Tatamo/atcoder-cli) にインスパイアされた、 Swift-er 向け AtCoder CLI です
 
 <img src="misc/top.png">
 
-- コンテスト毎に Xcode プロジェクトを作成します (`accs new <contest-name>`)
+- コンテスト毎に Xcode プロジェクトを作成します (`accs new <contest>`)
 - 問題ごとにサンプルの入出力からテストケースを作成します
-- コードの提出を支援します
+- コードの提出を支援します  (`accs submit <task>`)
 
 ## Requirements
 
