@@ -1,6 +1,10 @@
-extension Generator {
-    static func packageSwift(contestName: String, problemsAlphabets: [String]) throws {
-        let package = """
+struct Package: Generator {
+    let contestName: String
+    let problemsAlphabets: [String]
+    let fileName = "Package.swift"
+    let directory: String? = nil
+    var source: String {
+        """
         // swift-tools-version:5.3
         import PackageDescription
 
@@ -20,7 +24,5 @@ extension Generator {
             ]
         )
         """
-        let fileName = "Package.swift"
-        try package.write(toFile: fileName, atomically: true, encoding: .utf8)
     }
 }

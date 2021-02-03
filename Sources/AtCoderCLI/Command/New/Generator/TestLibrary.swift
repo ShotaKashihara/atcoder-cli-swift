@@ -1,8 +1,8 @@
-import Foundation
-
-extension Generator {
-    static func testLibrary() throws {
-        let testLibrary = """
+struct TestLibrary: Generator {
+    let directory: String? = "Tests/TestLibrary"
+    let fileName = "Library.swift"
+    var source: String {
+        """
         import XCTest
         import class Foundation.Bundle
 
@@ -40,9 +40,5 @@ extension Generator {
             }
         }
         """
-        let directory = "Tests/TestLibrary"
-        let fileName = "Library.swift"
-        try FileManager.default.createDirectory(atPath: directory, withIntermediateDirectories: true)
-        try testLibrary.write(toFile: "\(directory)/\(fileName)", atomically: true, encoding: .utf8)
     }
 }

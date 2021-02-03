@@ -1,9 +1,10 @@
-import Foundation
-
-extension Generator {
-    static func test(problem: Problem) throws {
-        let className = "\(problem.context.alphabet)Tests"
-        let source = """
+struct Test: Generator {
+    let problem: Problem
+    var className: String { "\(problem.context.alphabet)Tests" }
+    var fileName: String { "\(className).swift" }
+    var directory: String? { "Tests/\(className)" }
+    var source: String {
+        """
         import XCTest
         import TestLibrary
 
@@ -18,9 +19,5 @@ extension Generator {
             }
         }
         """
-        let directory = "Tests/\(className)"
-        let fileName = "\(className).swift"
-        try FileManager.default.createDirectory(atPath: directory, withIntermediateDirectories: true)
-        try source.write(toFile: "\(directory)/\(fileName)", atomically: true, encoding: .utf8)
     }
 }

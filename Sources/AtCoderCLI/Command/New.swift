@@ -17,11 +17,16 @@ struct New: ParsableCommand {
         let (contest, problems) = try OjApiCommand.getAllTasks(name: contestName, ojApiPath: ojApiPath)
         try FileManager.default.createDirectory(atPath: contestName, withIntermediateDirectories: true)
         FileManager.default.changeCurrentDirectoryPath(contestName)
-        try Generator.packageSwift(contestName: contestName, problemsAlphabets: problems.map(\.context.alphabet))
-        try Generator.readme(contest: contest, problems: problems)
-        try problems.forEach(Generator.source(problem:))
-        try problems.forEach(Generator.test(problem:))
-        try Generator.testLibrary()
+
+        try Package(contestName: contestName, problemsAlphabets: problems.map(\.context.alphabet)).write()
+        try Readme(contest: contest, problems: problems).write()
+        try problems.forEach {
+            try Source(problem: $0).write()
+        }
+        try problems.forEach {
+            try Test(problem: $0).write()
+        }
+        try TestLibrary().write()
         
         print("""
         Finished.
