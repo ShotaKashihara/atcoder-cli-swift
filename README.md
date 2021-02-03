@@ -12,6 +12,14 @@
 
 [online-judge-tools](https://github.com/online-judge-tools/oj) ([インストール手順](https://github.com/online-judge-tools/oj#how-to-install))
 
+- コードの提出を行う場合、`oj login` が必要です
+
+```bash
+oj login
+> Username: kashihararara
+> Password:
+```
+
 コンテスト情報の取得のため、`oj-api` というコマンドを内部で使用しています。
 
 ## Install
@@ -42,9 +50,18 @@ open abc190/Package.swift
 ```
 
 3. `Sources/A/main.swift` を開いて問題を解きます
+
+
+
 4. 問題が解けたら ⌘（command） + U でテストを実行します
 
 - ビルドターゲットを問題のアルファベットに切り替えておくと良いです
   - ショートカットキー: ⌃(control) + ⌘（command） + ]
 
-5. テストが通ったら AtCoder の提出ページからコードを提出します
+5. テストが通ったらコードを提出します
+
+```bash
+cd abc190/
+# A問題の提出なら submit の直後に `a` を指定します
+accs submit a -r
+```

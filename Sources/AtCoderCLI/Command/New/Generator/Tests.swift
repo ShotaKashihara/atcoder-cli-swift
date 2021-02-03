@@ -9,7 +9,7 @@ extension Generator {
 
         final class \(className): XCTestCase {
             func testExample() throws {
-                let cases: [(file: StaticString, line: UInt, input: String, expected: String)] = [
+                let cases: [TestCase] = [
         \(problem.tests.map { """
                     (#filePath, #line, \"\($0.input.replacingOccurrences(of: "\n", with: "\\n"))\", \"\($0.output.replacingOccurrences(of: "\n", with: "\\n"))\"),
         """ }.joined(separator: "\n"))

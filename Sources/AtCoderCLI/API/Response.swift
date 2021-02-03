@@ -8,6 +8,14 @@ extension OjApiCommand {
     struct GetProblemResponse: Decodable {
         let result: Problem
     }
+    
+    struct SubmitCodeResponse: Decodable {
+        let result: Result
+        
+        struct Result: Decodable {
+            let url: URL
+        }
+    }
 }
 
 struct Contest: Decodable {

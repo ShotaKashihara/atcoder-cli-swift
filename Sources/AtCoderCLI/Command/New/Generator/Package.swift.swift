@@ -1,11 +1,11 @@
 extension Generator {
-    static func packageSwift(taskName: String, problemsAlphabets: [String]) throws {
+    static func packageSwift(contestName: String, problemsAlphabets: [String]) throws {
         let package = """
         // swift-tools-version:5.3
         import PackageDescription
 
         let package = Package(
-            name: "\(taskName.uppercased())",
+            name: "\(contestName.uppercased())",
             dependencies: [],
             targets: [
         \(problemsAlphabets

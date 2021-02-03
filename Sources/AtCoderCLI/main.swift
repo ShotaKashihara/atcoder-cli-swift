@@ -3,8 +3,12 @@ import SwiftShell
 
 struct Command: ParsableCommand {
     static var configuration = CommandConfiguration(
-        subcommands: [New.self, Doctor.self],
-        defaultSubcommand: New.self
+        abstract: "AtCoder CLI for Swift.",
+        version: "1.0.0",
+        subcommands: [
+            New.self,
+            Submit.self,
+        ]
     )
 }
 

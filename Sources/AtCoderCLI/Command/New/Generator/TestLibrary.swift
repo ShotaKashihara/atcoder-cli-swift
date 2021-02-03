@@ -6,6 +6,8 @@ extension Generator {
         import XCTest
         import class Foundation.Bundle
 
+        public typealias TestCase = (file: StaticString, line: UInt, input: String, expected: String)
+
         public extension XCTestCase {
             func solve(file: StaticString, line: UInt, input: String, expected: String) throws {
                 // Some of the APIs that we use below are available in macOS 10.13 and above.
