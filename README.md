@@ -1,5 +1,5 @@
 # AtCoderCLI for Swift (accs)
-![Unit Test](https://github.com/ShotaKashihara/atcoder-cli-swift/workflows/Unit%20Test/badge.svg)
+![Unit Test](https://github.com/ShotaKashihara/atcoder-cli-swift/workflows/Unit%20Test/badge.svg?event=push)
 
 [AtCoder](https://atcoder.jp/?lang=ja) command line tools for Swift
 [Tatamo/atcoder-cli](https://github.com/Tatamo/atcoder-cli) を参考に、 Swift コーダー向けにカスタマイズしました
