@@ -69,6 +69,4 @@ open Package.swift
 accs submit <task> -r
 ```
 
-提出ページが自動で開きます
-
 <img src="misc/submit_page.png">
