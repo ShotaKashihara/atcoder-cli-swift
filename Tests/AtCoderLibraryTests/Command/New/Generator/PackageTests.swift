@@ -27,8 +27,4 @@ final class PackageTests: XCTestCase {
         """
         XCTAssertEqual(package.source, expected)
     }
-
-    static var allTests = [
-        ("test", test),
-    ]
 }

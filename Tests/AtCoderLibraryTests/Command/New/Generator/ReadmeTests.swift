@@ -28,7 +28,6 @@ final class ReadmeTests: XCTestCase {
                   timeLimit: 3000),
         ]
         let readme = Readme(contest: contest, problems: problems)
-        print(readme.source)
         let expected = """
         # [Example Contest 001](https://example.com/contest)
 
@@ -41,8 +40,4 @@ final class ReadmeTests: XCTestCase {
         """
         XCTAssertEqual(readme.source, expected)
     }
-
-    static var allTests = [
-        ("test", test),
-    ]
 }

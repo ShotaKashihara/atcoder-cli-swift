@@ -13,7 +13,6 @@ final class SourceTests: XCTestCase {
             timeLimit: 1000
         )
         let source = Source(problem: problem)
-        print(source.source)
         let expected = """
         // A - task1
         // https://example.com/p_1
@@ -22,8 +21,4 @@ final class SourceTests: XCTestCase {
         """
         XCTAssertEqual(source.source, expected)
     }
-
-    static var allTests = [
-        ("test", test),
-    ]
 }

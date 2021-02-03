@@ -17,7 +17,6 @@ final class TestTests: XCTestCase {
             timeLimit: 1000
         )
         let test = Test(problem: problem)
-        print(test.source)
         let expected = """
         import XCTest
         import TestLibrary
@@ -35,8 +34,4 @@ final class TestTests: XCTestCase {
         """
         XCTAssertEqual(test.source, expected)
     }
-
-    static var allTests = [
-        ("test", test),
-    ]
 }
