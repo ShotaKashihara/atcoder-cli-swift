@@ -31,11 +31,9 @@ swift build -c release
 cp -f .build/release/accs /usr/local/bin/.
 ```
 
-## Usage
+## コンテストの始め方
 
-### コンテストの始め方
-
-1. コンテスト名から Xcode プロジェクトの作成
+### 1. コンテスト名から Xcode プロジェクトの作成
 
 ```bash
 # コンテスト名はコンテストページURLの末尾の文字列を参照します
@@ -43,20 +41,19 @@ cp -f .build/release/accs /usr/local/bin/.
 accs new abc190
 ```
 
-2. 作成したプロジェクトを開く
+### 2. 作成したプロジェクトを開く
 
 ```
 open abc190/Package.swift
 ```
 
-3. `Sources/A/main.swift` を開いて問題を解きます
+### 3. `Sources/A/main.swift` を開いて問題を解きます
 
 <img src="misc/open_first_task.png">
 
-4. 問題が解けたら ⌘（command） + U でテストを実行します
+### 4. 問題が解けたら ⌘（command） + U でテストを実行します
 
 <img src="misc/test_done.png">
-
 
 ビルドターゲットを問題のアルファベットに切り替えておくと良いです
 
@@ -64,7 +61,7 @@ open abc190/Package.swift
 
 - ショートカットキー: ⌃(control) + ⌘（command） + ]
 
-5. テストが通ったらコードを提出します
+### 5. テストが通ったらコードを提出します
 
 ```bash
 # 提出コードがA問題なら <task> には `a` を指定します
