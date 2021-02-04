@@ -45,7 +45,8 @@ accs new abc190
 ### 2. 作成したプロジェクトを開く
 
 ```
-open abc190/Package.swift
+cd abc190
+open Package.swift
 ```
 
 ### 3. `Sources/A/main.swift` を開いて問題を解きます
