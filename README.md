@@ -54,7 +54,7 @@ open Package.swift
 
 <img src="misc/open_first_task.png">
 
-### 4. 問題が解けたら ⌘（command） + U でテストを実行します
+### 4. 問題が解けたら <kbd>⌘（command）</kbd> + <kbd>U</kbd> でテストを実行します
 
 <img src="misc/test_done.png">
 
@@ -63,7 +63,7 @@ open Package.swift
 
 <img src="misc/select_target.png">
 
-- ショートカットキー: ⌃(control) + ⌘（command） + ]
+- ショートカットキー: <kbd>⌃(control)</kbd> + <kbd>⌘（command）</kbd> + <kbd>]</kbd>
 
 ### 5. テストが通ったらコードを提出します
 
