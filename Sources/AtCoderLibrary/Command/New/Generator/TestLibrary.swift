@@ -23,10 +23,17 @@ struct TestLibrary: Generator {
                 process.standardInput = pipeInput
                 let pipeOutput = Pipe()
                 process.standardOutput = pipeOutput
+                let pipeError = Pipe()
+                process.standardError = pipeError
                 try process.run()
                 pipeInput.fileHandleForWriting.write(input.data(using: .utf8)!)
                 pipeInput.fileHandleForWriting.closeFile()
                 process.waitUntilExit()
+                let error = String(data: pipeError.fileHandleForReading.readDataToEndOfFile(), encoding: .utf8)!
+                if !error.isEmpty {
+                    XCTFail(error, file: file, line: line)
+                    return
+                }
                 let data = pipeOutput.fileHandleForReading.readDataToEndOfFile()
                 let output = String(data: data, encoding: .utf8)!
                 XCTAssertEqual(output, expected, file: file, line: line)
