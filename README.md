@@ -58,7 +58,7 @@ open Package.swift
 <img src="misc/test_done.png">
 
 
-ビルドターゲットを問題のアルファベットに切り替えておくと良いです
+*ビルドターゲットを問題のアルファベットに切り替えておくと良いです
 
 <img src="misc/select_target.png">
 
