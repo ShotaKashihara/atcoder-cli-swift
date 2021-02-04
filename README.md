@@ -1,5 +1,6 @@
 # AtCoderCLI for Swift (accs)
-![Unit Test](https://github.com/ShotaKashihara/atcoder-cli-swift/workflows/Unit%20Test/badge.svg?event=push)
+
+[![Unit Test](https://github.com/ShotaKashihara/atcoder-cli-swift/workflows/Unit%20Test/badge.svg?event=push)](https://github.com/ShotaKashihara/atcoder-cli-swift/actions)
 
 [Tatamo/atcoder-cli](https://github.com/Tatamo/atcoder-cli) にインスパイアされた、 Swift-er 向けの AtCoder CLI です
 
