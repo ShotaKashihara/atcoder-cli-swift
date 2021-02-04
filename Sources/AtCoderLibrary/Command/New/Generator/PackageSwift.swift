@@ -12,7 +12,7 @@ struct PackageSwift: Generator {
             name: "\(contestName.uppercased())",
             dependencies: [],
             targets: [
-        \(alphabets
+        \(alphabets.sorted()
                     .map {
         """
                 .target(name: "\($0)"),
