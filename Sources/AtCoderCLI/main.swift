@@ -5,7 +5,7 @@ import SwiftShell
 struct Command: ParsableCommand {
     static var configuration = CommandConfiguration(
         abstract: "AtCoder CLI for Swift.",
-        version: "1.0.2",
+        version: "1.0.3",
         subcommands: [
             New.self,
             Submit.self,
