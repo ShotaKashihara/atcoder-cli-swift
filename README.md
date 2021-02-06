@@ -12,9 +12,11 @@
 
 ## Requirements
 
-[online-judge-tools](https://github.com/online-judge-tools/oj) ([インストール手順](https://github.com/online-judge-tools/oj#how-to-install))
+[online-judge-tools](https://github.com/online-judge-tools/oj)
 
-- コードの提出を行う場合、`oj login` が必要です
+- インストール
+  - https://github.com/online-judge-tools/oj#how-to-install
+- ログイン
 
 ```bash
 oj login
