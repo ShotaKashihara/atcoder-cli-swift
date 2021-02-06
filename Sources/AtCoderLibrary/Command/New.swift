@@ -11,6 +11,9 @@ public struct New: ParsableCommand {
     @Argument(help: "Name of the contest to create.\nex. \"abc111\"")
     var contestName: String
     
+    @Flag(name: .shortAndLong, help: "Open Package.swift after creation.")
+    var open: Bool = false
+    
     @Option(help: "Specify the path to oj-api.")
     var ojApiPath: String = "oj-api"
 
@@ -29,7 +32,12 @@ public struct New: ParsableCommand {
             try Test(problem: $0).write()
         }
         try TestLibrary().write()
-        
+
+        if open {
+            SwiftShell.run("cd", contestName)
+            SwiftShell.run("open", "Package.swift")
+            return
+        }
         print("""
         Finished.
         $ cd \(contestName) && open Package.swift
