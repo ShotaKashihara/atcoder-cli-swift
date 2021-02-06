@@ -13,6 +13,7 @@
 ## Requirements
 
 [online-judge-tools](https://github.com/online-judge-tools/oj)
+コンテスト情報の取得のため、`oj-api` というコマンドに依存しています
 
 - インストール
   - https://github.com/online-judge-tools/oj#how-to-install
@@ -23,8 +24,6 @@ oj login
 > Username: kashihararara
 > Password:
 ```
-
-コンテスト情報の取得のため、`oj-api` というコマンドを内部で使用しています。
 
 ## Install
 
