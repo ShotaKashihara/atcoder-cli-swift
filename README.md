@@ -28,10 +28,7 @@ oj login
 ## Install
 
 ```bash
-git clone https://github.com/ShotaKashihara/atcoder-cli-swift
-cd atcoder-cli-swift
-swift build -c release
-cp -f .build/release/accs /usr/local/bin/.
+brew install ShotaKashihara/tap/accs
 ```
 
 ## コンテストの始め方
