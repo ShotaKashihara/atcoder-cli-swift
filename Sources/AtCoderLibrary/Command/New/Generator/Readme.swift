@@ -4,7 +4,10 @@ struct Readme: Generator {
     let fileName = "README.md"
     let directory: String? = nil
     var source: String {
-        """
+        let problems = self.problems.sorted(by: {
+            $0.context.alphabet < $1.context.alphabet
+        })
+        return """
         # [\(contest.name)](\(contest.url))
 
         問題名 | 実行時間制限 | メモリ制限
