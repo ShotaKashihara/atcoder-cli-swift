@@ -1,12 +1,14 @@
+PREFIX?=/usr/local
+
 build:
-	swift build
+	swift build -c release --disable-sandbox
 
 test:
 	swift test --enable-test-discovery
 
-install:
-	swift build -c release
-	cp -f .build/release/accs /usr/local/bin/.
+install: build
+	mkdir -p "$(PREFIX)/bin"
+	cp -f ".build/release/accs" "$(PREFIX)/bin/accs"
 
 docker-run-it:
 	docker run --rm -it \
