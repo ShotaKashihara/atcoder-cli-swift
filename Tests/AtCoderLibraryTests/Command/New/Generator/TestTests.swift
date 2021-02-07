@@ -14,14 +14,16 @@ final class TestTests: XCTestCase {
             name: "",
             context: .init(contest: .empty, alphabet: "A"),
             memoryLimit: 1000,
-            timeLimit: 1000
+            timeLimit: 2000
         )
         let test = Test(problem: problem)
         let expected = """
         import XCTest
         import TestLibrary
 
-        final class ATests: XCTestCase {
+        final class ATests: XCTestCase, TimeLimit {
+            let timeLimit: TimeInterval = 2.0
+
             func testExample() throws {
                 let cases: [TestCase] = [
                     (#filePath, #line, "input1", "output1"),

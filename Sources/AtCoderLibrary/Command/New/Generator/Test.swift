@@ -8,7 +8,9 @@ struct Test: Generator {
         import XCTest
         import TestLibrary
 
-        final class \(className): XCTestCase {
+        final class \(className): XCTestCase, TimeLimit {
+            let timeLimit: TimeInterval = \(Double(problem.timeLimit)/1000)
+
             func testExample() throws {
                 let cases: [TestCase] = [
         \(problem.tests.map { """
