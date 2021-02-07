@@ -7,9 +7,8 @@ final class TestTests: XCTestCase {
         let problem = Problem(
             url: "https://example.com/p_1".url,
             tests: [
-                .init(input: "input1", output: "output1"),
-                .init(input: "input2", output: "output2"),
-                .init(input: "input3", output: "output3"),
+                .init(input: "10 2\n20 3\n30 4\n", output: "5\n20\n3\n"),
+                .init(input: "199 2\n", output: "1992\n"),
             ],
             name: "",
             context: .init(contest: .empty, alphabet: "A"),
@@ -26,9 +25,20 @@ final class TestTests: XCTestCase {
 
             func testExample() throws {
                 let cases: [TestCase] = [
-                    (#filePath, #line, "input1", "output1"),
-                    (#filePath, #line, "input2", "output2"),
-                    (#filePath, #line, "input3", "output3"),
+                    (#filePath, #line, \"""
+                        10 2
+                        20 3
+                        30 4
+                        \""", \"""
+                        5
+                        20
+                        3
+                        \"""),
+                    (#filePath, #line, \"""
+                        199 2
+                        \""", \"""
+                        1992
+                        \"""),
                 ]
                 try cases.forEach(solve)
             }

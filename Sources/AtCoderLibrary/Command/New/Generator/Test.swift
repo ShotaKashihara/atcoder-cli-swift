@@ -13,13 +13,23 @@ struct Test: Generator {
 
             func testExample() throws {
                 let cases: [TestCase] = [
-        \(problem.tests.map { """
-                    (#filePath, #line, \"\($0.input.replacingOccurrences(of: "\n", with: "\\n"))\", \"\($0.output.replacingOccurrences(of: "\n", with: "\\n"))\"),
-        """ }.joined(separator: "\n"))
+        \(problem.tests.map(Self.testCase).joined(separator: "\n"))
                 ]
                 try cases.forEach(solve)
             }
         }
         """
+    }
+
+    private static func testCase(_ test: Problem.Test) -> String {
+        let inputs = test.input.split(separator: "\n")
+        let outputs = test.output.split(separator: "\n")
+        return """
+                        (#filePath, #line, \"""
+            \(inputs.map { "                \($0)" }.joined(separator: "\n"))
+                            \""", \"""
+            \(outputs.map { "                \($0)" }.joined(separator: "\n"))
+                            \"""),
+            """
     }
 }

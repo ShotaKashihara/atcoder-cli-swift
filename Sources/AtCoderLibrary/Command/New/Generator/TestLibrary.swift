@@ -1,6 +1,6 @@
 struct TestLibrary: Generator {
     let directory: String? = "Tests/TestLibrary"
-    let fileName = "Library.swift"
+    let fileName = "TestLibrary.swift"
     var source: String {
         """
         import XCTest
@@ -18,6 +18,7 @@ struct TestLibrary: Generator {
                 guard #available(macOS 10.13, *) else {
                     return
                 }
+                let expected = expected.last == "\\n" ? expected : expected + "\\n"
                 var error = ""
                 let exp = expectation(description: "")
                 let testTarget = String(describing: type(of: self)).replacingOccurrences(of: "Tests", with: "")
