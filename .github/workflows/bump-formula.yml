@@ -12,6 +12,6 @@ jobs:
     steps:
       - uses: dawidd6/action-homebrew-bump-formula@v3.1.1
         with:
-          token: ${{ secrets.TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           tap: ShotaKashihara/homebrew-tap
           formula: accs
