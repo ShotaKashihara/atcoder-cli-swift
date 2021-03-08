@@ -16,6 +16,7 @@ final class SourceTests: XCTestCase {
         let expected = """
         // A - task1
         // https://example.com/p_1
+        // 実行制限時間: 1.0 sec
         import Foundation
 
         """
