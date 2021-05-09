@@ -19,16 +19,16 @@ open Package.swift
 
 ### 3. `Sources/A/main.swift` を開いて問題を解きます
 
-<img src="misc/open_first_task.png">
+<img src="../misc/open_first_task.png">
 
 ### 4. 問題が解けたら <kbd>⌘（command）</kbd>-<kbd>U</kbd> でテストを実行します
 
-<img src="misc/test_done.png">
+<img src="../misc/test_done.png">
 
 
 *ビルドターゲットを問題のアルファベットに切り替えておくと良いです
 
-<img src="misc/select_target.png">
+<img src="../misc/select_target.png">
 
 - ショートカットキー: <kbd>⌃(control)</kbd>-<kbd>⌘（command）</kbd>-<kbd>]</kbd>
 
@@ -39,4 +39,4 @@ open Package.swift
 accs submit <task> -r
 ```
 
-<img src="misc/submit_page.png">
+<img src="../misc/submit_page.png">
