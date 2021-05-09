@@ -2,13 +2,30 @@
 
 [![Unit Test](https://github.com/ShotaKashihara/atcoder-cli-swift/workflows/Unit%20Test/badge.svg?event=push)](https://github.com/ShotaKashihara/atcoder-cli-swift/actions)
 
-[Tatamo/atcoder-cli](https://github.com/Tatamo/atcoder-cli) にインスパイアされた、 Swift-er 向けの AtCoder CLI です
+[Tatamo/atcoder-cli](https://github.com/Tatamo/atcoder-cli) にインスパイアされた Swift-er 向けの AtCoder CLI です。
+
+- コンテストに対応する Swift Package プロジェクトを作成します。
+  - Swift Package プロジェクトには各問題に対応する Target と TestTarget が含まれます。
+  - 問題のサンプル入出力から XCTest を作成します。
+- ターミナルからソースコードの提出を支援します。
 
 <img src="misc/top.png">
 
-- コンテスト毎に Xcode プロジェクトを作成します (`accs new <contest>`)
-- 問題ごとにサンプルの入出力からテストケースを作成します
-- コードの提出を支援します  (`accs submit <task>`)
+## Install
+
+```bash
+brew install ShotaKashihara/tap/accs
+```
+
+## Usage
+
+```bash
+$ accs new abc001 # "abc001/" directory will be created
+$ cd abc001/
+$ open Package.swift # Launch Swift Package project with Xcode
+# ... write your solution ...
+$ accs submit {:problem_alphabet} # to use submit function
+```
 
 ## Requirements
 
@@ -23,12 +40,6 @@
 oj login
 > Username: kashihararara
 > Password:
-```
-
-## Install
-
-```bash
-brew install ShotaKashihara/tap/accs
 ```
 
 ## Documents
