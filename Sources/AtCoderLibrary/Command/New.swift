@@ -8,9 +8,12 @@ public struct New: ParsableCommand {
         abstract: "Create a new contest project."
     )
     
-    @Argument(help: "Name of the contest to create.\nex. \"abc111\"")
+    @Argument(help: "Name of the contest to create.\nex. 'abc123'")
     var contestName: String
     
+    @Option(name: .shortAndLong, help: "Contest URL. \nIf no value is given, then 'https://atcoder.jp/contests/:contest_name' is used.")
+    var contestUrl: String?
+
     @Flag(name: .shortAndLong, help: "Open Package.swift after creation.")
     var open: Bool = false
     
@@ -18,7 +21,8 @@ public struct New: ParsableCommand {
     var ojApiPath: String = "oj-api"
 
     public mutating func run() throws {
-        let (contest, problems) = try OjApiCommand.getAllTasks(name: contestName, ojApiPath: ojApiPath)
+        let contestUrl = self.contestUrl ?? "https://atcoder.jp/contests/\(contestName)"
+        let (contest, problems) = try OjApiCommand.getAllTasks(url: contestUrl, ojApiPath: ojApiPath)
         try FileManager.default.createDirectory(atPath: contestName, withIntermediateDirectories: true)
         FileManager.default.changeCurrentDirectoryPath(contestName)
 

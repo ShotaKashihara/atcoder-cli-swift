@@ -2,15 +2,16 @@ import Foundation
 import SwiftShell
 
 enum OjApiCommand {
-    static func getAllTasks(name: String, ojApiPath: String) throws -> (contest: Contest, problems: [Problem]) {
-        let contest = try OjApiCommand.getContest(name: name, ojApiPath: ojApiPath)
+    static func getAllTasks(url: String, ojApiPath: String) throws -> (contest: Contest, problems: [Problem]) {
+        let contest = try OjApiCommand.getContest(url: url, ojApiPath: ojApiPath)
         var problems = [Problem]()
         let operation = BlockOperation()
         var error: Error?
         contest.problems.forEach { problem in
             operation.addExecutionBlock {
                 do {
-                    let problem = try OjApiCommand.getProblem(name: name, alphabet: problem.context.alphabet, url: problem.url, ojApiPath: ojApiPath)
+                    let problem = try OjApiCommand.getProblem(url: problem.url, ojApiPath: ojApiPath)
+                        .apply(context: problem.context)
                     problems.append(problem)
                 } catch(let e) {
                     error = e
@@ -55,9 +56,9 @@ private extension OjApiCommand {
         }
     }
 
-    static func getContest(name: String, ojApiPath: String) throws -> Contest {
+    static func getContest(url: String, ojApiPath: String) throws -> Contest {
         try precheck(path: ojApiPath)
-        let result = run(ojApiPath, "get-contest", "https://atcoder.jp/contests/\(name)")
+        let result = run(ojApiPath, "get-contest", url)
         guard result.succeeded else {
             throw result.stderror
         }
@@ -66,7 +67,7 @@ private extension OjApiCommand {
         return response.result
     }
 
-    static func getProblem(name: String, alphabet: String, url: URL, ojApiPath: String) throws -> Problem {
+    static func getProblem(url: URL, ojApiPath: String) throws -> Problem {
         try precheck(path: ojApiPath)
         let result = run(ojApiPath, "get-problem", url.absoluteString)
         guard result.succeeded else {

@@ -42,6 +42,10 @@ struct Problem: Decodable {
         let input: String
         let output: String
     }
+    
+    func apply(context: Context) -> Self {
+        .init(url: url, tests: tests, name: name, context: context, memoryLimit: memoryLimit, timeLimit: timeLimit)
+    }
 }
 
 struct Context: Decodable {

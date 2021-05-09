@@ -1,8 +1,14 @@
 struct Test: Generator {
     let problem: Problem
-    var className: String { "\(problem.context.alphabet)Tests" }
-    var fileName: String { "\(className).swift" }
-    var directory: String? { "Tests/\(className)" }
+    var className: String {
+        if Int(problem.context.alphabet) != nil {
+            // [!] Class name can not start with a number.
+            return "_\(problem.context.alphabet)Tests"
+        }
+        return "\(problem.context.alphabet)Tests"
+    }
+    var fileName: String { "\(problem.context.alphabet)Tests.swift" }
+    var directory: String? { "Tests/\(problem.context.alphabet)Tests" }
     var source: String {
         """
         import XCTest
