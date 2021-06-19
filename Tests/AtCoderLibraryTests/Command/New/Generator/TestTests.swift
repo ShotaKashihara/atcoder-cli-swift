@@ -20,26 +20,29 @@ final class TestTests: XCTestCase {
         import XCTest
         import TestLibrary
 
+        let cases: [TestCase] = [
+        (#filePath, #line,
+        \"""
+        10 2
+        20 3
+        30 4
+        \""", \"""
+        5
+        20
+        3
+        \"""),
+        (#filePath, #line,
+        \"""
+        199 2
+        \""", \"""
+        1992
+        \"""),
+        ]
+
         final class ATests: XCTestCase, TimeLimit {
             let timeLimit: TimeInterval = 2.0
 
             func testExample() throws {
-                let cases: [TestCase] = [
-                    (#filePath, #line, \"""
-                        10 2
-                        20 3
-                        30 4
-                        \""", \"""
-                        5
-                        20
-                        3
-                        \"""),
-                    (#filePath, #line, \"""
-                        199 2
-                        \""", \"""
-                        1992
-                        \"""),
-                ]
                 try cases.forEach(solve)
             }
         }

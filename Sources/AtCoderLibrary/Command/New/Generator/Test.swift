@@ -14,13 +14,14 @@ struct Test: Generator {
         import XCTest
         import TestLibrary
 
+        let cases: [TestCase] = [
+        \(problem.tests.map(Self.testCase).joined(separator: "\n"))
+        ]
+
         final class \(className): XCTestCase, TimeLimit {
             let timeLimit: TimeInterval = \(Double(problem.timeLimit)/1000)
 
             func testExample() throws {
-                let cases: [TestCase] = [
-        \(problem.tests.map(Self.testCase).joined(separator: "\n"))
-                ]
                 try cases.forEach(solve)
             }
         }
@@ -31,11 +32,12 @@ struct Test: Generator {
         let inputs = test.input.split(separator: "\n")
         let outputs = test.output.split(separator: "\n")
         return """
-                        (#filePath, #line, \"""
-            \(inputs.map { "                \($0)" }.joined(separator: "\n"))
-                            \""", \"""
-            \(outputs.map { "                \($0)" }.joined(separator: "\n"))
-                            \"""),
+            (#filePath, #line,
+            \"""
+            \(inputs.map { "\($0)" }.joined(separator: "\n"))
+            \""", \"""
+            \(outputs.map { "\($0)" }.joined(separator: "\n"))
+            \"""),
             """
     }
 }
