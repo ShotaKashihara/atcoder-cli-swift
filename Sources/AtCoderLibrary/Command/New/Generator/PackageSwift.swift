@@ -15,7 +15,7 @@ struct PackageSwift: Generator {
         \(alphabets.sorted()
                     .map {
         """
-                .target(name: "\($0)"),
+                .target(name: "\($0)", swiftSettings: [.unsafeFlags(["-Ounchecked"])]),
                 .testTarget(name: "\($0)Tests", dependencies: ["\($0)", "TestLibrary"]),
         """
                     }
