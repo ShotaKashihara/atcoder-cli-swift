@@ -15,11 +15,11 @@ final class PackageTests: XCTestCase {
             name: "ABC001",
             dependencies: [],
             targets: [
-                .target(name: "A", swiftSettings: [.unsafeFlags(["-Ounchecked"])]),
+                .target(name: "A"),
                 .testTarget(name: "ATests", dependencies: ["A", "TestLibrary"]),
-                .target(name: "B", swiftSettings: [.unsafeFlags(["-Ounchecked"])]),
+                .target(name: "B"),
                 .testTarget(name: "BTests", dependencies: ["B", "TestLibrary"]),
-                .target(name: "C", swiftSettings: [.unsafeFlags(["-Ounchecked"])]),
+                .target(name: "C"),
                 .testTarget(name: "CTests", dependencies: ["C", "TestLibrary"]),
                 .target(name: "TestLibrary", path: "Tests/TestLibrary"),
             ]
