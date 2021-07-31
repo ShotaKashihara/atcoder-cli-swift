@@ -27,15 +27,15 @@ public struct New: ParsableCommand {
         FileManager.default.changeCurrentDirectoryPath(contestName)
 
         let alphabets = problems.map(\.context.alphabet).map(Character.init)
-        try PackageSwift(contestName: contestName, alphabets: alphabets).write()
-        try Readme(contest: contest, problems: problems).write()
+        try PackageSwift(contestName: contestName, alphabets: alphabets).codeGenerate()
+        try Readme(contest: contest, problems: problems).codeGenerate()
         try problems.forEach {
-            try Source(problem: $0).write()
+            try Source(problem: $0).codeGenerate()
         }
         try problems.forEach {
-            try Test(problem: $0).write()
+            try Test(problem: $0).codeGenerate()
         }
-        try TestLibrary().write()
+        try TestLibrary().codeGenerate()
 
         if open {
             SwiftShell.run("cd", contestName)
