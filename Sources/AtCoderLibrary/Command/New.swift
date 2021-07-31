@@ -36,6 +36,9 @@ public struct New: ParsableCommand {
             try Test(problem: $0).codeGenerate()
         }
         try TestLibrary().codeGenerate()
+        try problems.forEach {
+            try XCScheme(problem: $0).codeGenerate()
+        }
 
         if open {
             SwiftShell.run("cd", contestName)
