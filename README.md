@@ -4,10 +4,11 @@
 
 [Tatamo/atcoder-cli](https://github.com/Tatamo/atcoder-cli) にインスパイアされた Swift-er 向けの AtCoder CLI です。
 
-- コンテストに対応する Swift Package プロジェクトを作成します。
-  - Swift Package プロジェクトには各問題に対応する Target と TestTarget が含まれます。
-  - 問題のサンプル入出力から XCTest を作成します。
-- ターミナルからソースコードの提出を支援します。
+コンテストに対応する Swift Package プロジェクトを作成します。
+
+
+- Swift Package プロジェクトには各問題に対応する Target と TestTarget が含まれます。
+- XCTest のテストケースを問題のサンプル入出力から自動で作成します。
 
 <img src="misc/top.png">
 
