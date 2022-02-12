@@ -38,7 +38,7 @@ $ accs submit {:problem_alphabet} # to use submit function
 - ログイン
 
 ```bash
-oj login
+oj login https://atcoder.jp/
 > Username: kashihararara
 > Password:
 ```
