@@ -5,7 +5,7 @@ import Foundation
 final class PackageTests: XCTestCase {
     func test() throws {
         let contestName = "abc001"
-        let alphabets: [Character] = ["A", "B", "C"]
+        let alphabets = ["A", "B", "C"]
         let package = PackageSwift(contestName: contestName, alphabets: alphabets)
         let expected = """
         // swift-tools-version:5.3

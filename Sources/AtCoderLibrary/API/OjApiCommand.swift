@@ -5,24 +5,10 @@ enum OjApiCommand {
     static func getAllTasks(url: String, ojApiPath: String) throws -> (contest: Contest, problems: [Problem]) {
         let contest = try OjApiCommand.getContest(url: url, ojApiPath: ojApiPath)
         var problems = [Problem]()
-        let operation = BlockOperation()
-        var error: Error?
-        contest.problems.forEach { problem in
-            operation.addExecutionBlock {
-                do {
-                    let problem = try OjApiCommand.getProblem(url: problem.url, ojApiPath: ojApiPath)
-                        .apply(context: problem.context)
-                    problems.append(problem)
-                } catch(let e) {
-                    error = e
-                    operation.cancel()
-                }
-            }
-        }
-        operation.start()
-
-        if operation.isCancelled, let error = error {
-            throw error
+        for problem in contest.problems {
+            let problem = try OjApiCommand.getProblem(url: problem.url, ojApiPath: ojApiPath)
+                .apply(context: problem.context)
+            problems.append(problem)
         }
         return (contest, problems)
     }
