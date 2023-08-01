@@ -26,7 +26,7 @@ public struct New: ParsableCommand {
         try FileManager.default.createDirectory(atPath: contestName, withIntermediateDirectories: true)
         FileManager.default.changeCurrentDirectoryPath(contestName)
 
-        let alphabets = problems.map(\.context.alphabet).map(Character.init)
+        let alphabets = problems.map(\.context.alphabet)
         try PackageSwift(contestName: contestName, alphabets: alphabets).codeGenerate()
         try Readme(contest: contest, problems: problems).codeGenerate()
         try problems.forEach {
