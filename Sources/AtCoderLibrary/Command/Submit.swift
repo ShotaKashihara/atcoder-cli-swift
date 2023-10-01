@@ -8,8 +8,8 @@ public struct Submit: ParsableCommand {
         abstract: "Submit a your code."
     )
 
-    @Argument(help: "Alphabet of the problem to be submitted.", transform: Character.init)
-    var task: Character
+    @Argument(help: "Alphabet of the problem to be submitted.")
+    var task: String
     
     @Flag(name: .shortAndLong, help: "Run a UnitTest before submitting.")
     var runTest: Bool = false

@@ -9,6 +9,10 @@ extension OjApiCommand {
         let result: Problem
     }
     
+    struct GuessLanguageResponse: Decodable {
+        let result: Language
+    }
+    
     struct SubmitCodeResponse: Decodable {
         let result: Result
         
@@ -56,4 +60,9 @@ struct Context: Decodable {
         let name: String
         let url: URL
     }
+}
+
+struct Language: Decodable {
+    let id: String
+    let description: String
 }
