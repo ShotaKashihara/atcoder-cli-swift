@@ -13,23 +13,18 @@ enum OjApiCommand {
         return (contest, problems)
     }
 
-    static func submitCode(contestName: String, task: Character, ojApiPath: String) throws -> URL {
+    static func submitCode(contestName: String, task: String, ojApiPath: String) throws -> URL {
         try precheck(path: ojApiPath)
-        let result = run(
-            ojApiPath,
-            "submit-code",
-            "--file",
-            "Sources/\(task.uppercased())/main.swift",
-            "--language",
-            "4055",
-            "https://atcoder.jp/contests/\(contestName)/tasks/\(contestName)_\(task.lowercased())"
-        )
-        guard result.succeeded else {
-            throw result.stderror
+        let contestURL = "https://atcoder.jp/contests/\(contestName)"
+        let contest = try getContest(url: contestURL, ojApiPath: ojApiPath)
+        guard let problem = contest.problems.first(where: {
+            $0.context.alphabet.uppercased() == task.uppercased()
+        }) else {
+            throw "The contest name or the task name is invalid."
         }
-        print(result.stdout)
-        let response = try JSONDecoder().decode(SubmitCodeResponse.self, from: result.stdout.data(using: .utf8)!)
-        return response.result.url
+        let filePath = "Sources/\(task.uppercased())/main.swift"
+        let language = try guessLanguage(url: problem.url, filePath: filePath, ojApiPath: ojApiPath)
+        return try submitCode(url: problem.url, filePath: filePath, language: language, ojApiPath: ojApiPath)
     }
 }
 
@@ -62,5 +57,34 @@ private extension OjApiCommand {
         print(result.stdout)
         let response = try JSONDecoder().decode(GetProblemResponse.self, from: result.stdout.data(using: .utf8)!)
         return response.result
+    }
+    
+    static func guessLanguage(url: URL, filePath: String, ojApiPath: String) throws -> Language {
+        try precheck(path: ojApiPath)
+        let result = run(ojApiPath, "guess-language-id", url.absoluteString, "--file=\(filePath)")
+        guard result.succeeded else {
+            throw result.stderror
+        }
+        print(result.stdout)
+        let response = try JSONDecoder().decode(GuessLanguageResponse.self, from: result.stdout.data(using: .utf8)!)
+        return response.result
+    }
+    
+    static func submitCode(url: URL, filePath: String, language: Language, ojApiPath: String) throws -> URL {
+        let result = run(
+            ojApiPath,
+            "submit-code",
+            "--file",
+            filePath,
+            "--language",
+            language.id,
+            url.absoluteString
+        )
+        guard result.succeeded else {
+            throw result.stderror
+        }
+        print(result.stdout)
+        let response = try JSONDecoder().decode(SubmitCodeResponse.self, from: result.stdout.data(using: .utf8)!)
+        return response.result.url
     }
 }
